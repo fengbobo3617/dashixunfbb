@@ -1,11 +1,14 @@
 package cn.jiyun.ssm.pojo;
 //通用mapper
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 @Table(name="t_user")
 public class user {
@@ -18,6 +21,7 @@ public class user {
     private String name;
     private Integer age;
     private Integer sex;
+
     private Date birthday;
     private Date created;
     private Date updated;
