@@ -1,4 +1,4 @@
-package cn.jiyun.springcloud;
+package jiyun.service.springcloud;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
