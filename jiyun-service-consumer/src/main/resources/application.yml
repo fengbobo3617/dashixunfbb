@@ -6,8 +6,31 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:8762/eureka
   instance:
-    prefer-ip-address: true #当其他服务获取地址对提供ip而不是hostname
-    ip-address: 127.0.0.1 #指定自己的ip信息,不指定的话会自己寻找
-
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+service-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMillisecond: 5000
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+logging:
+  level:
+    cn.jiyun.service.jiyunserviceconsumer:
+      debug
