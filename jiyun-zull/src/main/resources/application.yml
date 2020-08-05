@@ -1,0 +1,19 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: jiyun-zull
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    registry-fetch-interval-seconds: 5 #获取中心的频率
+zuul:
+  routes:
+#    service-provider:
+#      path: /service-provider/** #这里是映射路径
+#      #url: http://127.0.0.1:8081 #映射路径对应真的路径
+#      serviceId: service-provider #指定要向注册中心获取服务名
+    service-provider: /service-provider/**
+    service-consumer: /service-consumer/**
+  prefix: /api #路由添加前缀
