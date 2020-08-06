@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: mediumvioletred;
+        }
+    </style>
+</head>
+<body>
+<script>
+    for (let i=0;i<5;i++){
+        console.log(i);
+    }
+
+    function add(a,b){
+        b = b || 1;
+        return a+b;
+    }
+
+
+    function add(a,b=1){
+
+        return a+b;
+    }
+
+    console.log(add(10));
+
+
+    var print =function(obj){
+        console.log(obj);
+    }
+    var print2 =obj =>console.log(obj);
+    console.log(print2(5));
+    var sum = function(a,b){
+        return a+b;
+    }
+    var sum2=(a,b) =>a+b;
+    console.log(sum2(9,8));
+
+    var sum3 =(a,b) =>{
+        return a+b;
+    }
+    console.log(sum3(9,8));
+
+    let person = {
+            name : "jack",
+            eat:function (food) {
+                console.log(this.name+"正在吃"+food);
+            },
+            eat2:food => console.log(this.name +"在吃"+food),
+        eat3(food){
+        console.log(this.name+"再吃"+food)
+    }
+    }
+    console.log(person.eat("饭"));
+    console.log(person.eat2("饭"));
+    console.log(person.eat3("饭"));
+
+    const person2 = {
+        name:"jack",
+        age:21,
+        language: ['java','js','css']
+    }
+    function  hello(person2) {
+        console.log("hello,"+person2.name)
+    }
+    hello(person2);
+    var hellow2 = ({name})=>console.log("hellooo"+name)
+    hellow2(person2);
+    let arr = ['1','2','7','-1'];
+    console.log(arr)
+
+    arr = arr.map(s => parseInt(s));
+    console.log(arr)
+
+    console.log(Object.keys(person));
+    console.log(Object.values(person));
+    console.log(Object.entries(person));
+
+    var obj ={};
+    Object.assign(obj,person2,{age:25,sex:'女'},{name:'张飞'});
+    console.log(obj);
+    b = arr.find(item=>item>6);
+    console.log(b);
+    b = arr.findIndex(item=>item>2);
+    console.log(b);
+    b = arr.includes(6);
+    console.log(b);
+    b = arr.includes(7);
+    console.log(b);
+</script>
+</body>
+</html>
