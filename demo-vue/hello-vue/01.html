@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{name}}<br/>
+        v-text:<span v-text="hello"></span><br>
+        v-html:<span v-html="hello"></span>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app = new  Vue({
+            el:"#app",
+            data:{
+                name:"Tom",
+                hello:"<h1>大家好,明天是周末</h1>"
+            }
+        })
+    </script>
+</body>
+</html>

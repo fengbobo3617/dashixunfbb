@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="show=!show">点我啊</button>
+    <br/>
+    <h1 v-if="show">
+        我是第一个show
+    </h1>
+    <h1 v-else>
+        else
+    </h1>
+    <h1 v-show="show">
+        我是第二个show
+
+    </h1>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    var app =new Vue({
+        el:"#app",
+        data:{
+            show:true
+        }
+    })
+
+</script>
+</body>
+</html>

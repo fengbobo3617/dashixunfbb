@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+        #child{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 0px auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--右键-->
+        <button v-on:contextmenu.prevent="num++">增加一个</button><br/>
+        <button v-on:contextmenu="decrement($event)">减少一个</button>
+        <h1>安徽的卡拉又吃了{{num}}根腊肠</h1>
+        <div id="parent" v-on:click="outerButton">
+            <div id="child" v-on:click.stop="innerButton"></div>
+        </div>
+        <!--按住不松手 .alt.c .后面都可以 .13是回车-->
+        <input v-on:keydown.alt.c="submit">
+        <!--按住弹回来-->
+        <!--<input v-on:keyup.13="submit">-->
+    </div>
+<script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                num:100
+            },
+            methods:{
+                decrement(ev){
+                    ev.preventDefault();
+                    this.num--
+                },
+                innerButton(){
+                    alert("child");
+                },
+                outerButton(){
+                    alert("parent")
+                },
+                submit(){
+                    alert("提交");
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

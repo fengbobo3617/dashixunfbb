@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{name}},非常帅!! 有{{num}}位女生喜欢!!</h2>
+        <button v-on:click="add">点我呀</button>
+    </div>
+</body>
+ <script src="node_modules/vue/dist/vue.js"></script>
+ <script>
+     //创建vue实例
+     var app = new Vue({
+         el:"#app",
+         data:{
+             name:"二哈",
+             num:5
+         },
+         methods:{
+             add:function(){
+                 console.log(this)
+                 this.num--;
+             }
+         },
+         created:function () {
+             this.num = 100;
+         }
+     });
+    /* var vm =new Vue({
+         //属性名:属性值 el,data,methods
+     })*/
+ </script>
+</html>

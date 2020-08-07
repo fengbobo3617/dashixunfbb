@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--事件中直接写js片段-->
+    <button v-on:click="num++">点我啊</button>
+        <button v-on:click="decrement"></button>
+        <h1>阿拉丁计划考虑吃了{{num}}个包子</h1>
+    </div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                num:100
+            },
+            methods:{
+                decrement(){
+                this.num--;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
