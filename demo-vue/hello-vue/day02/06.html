@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+        <h1>打个招呼</h1>
+    <!--父组件向子组件通信-->
+    <introduce title="大家好,很高兴认识你们"></introduce>
+    <my-List :items="lessons"></my-List>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("introduce",{
+        template:'<h1>{{title}}<hr size="10" color="red"/> </h1>',
+        props:['title'] //通过props来接收一个父组件传递过来的属性
+    });
+    const myList = {
+        template: `
+            <ul>
+                <li v-for="item in items" :key="item.id">{{item.id}}:{{item.name}}</li>
+            </ul>
+        `,
+        props:{
+            items:{
+                type:Array,
+                default:[],
+                required:true
+            }
+        }
+    }
+    var app = new Vue({
+        el: "#app",
+       components:{
+            myList
+       },
+        data:{
+            lessons:[
+                {id:1,name:"大数据"},
+                 {id:2,name:"全栈"},
+                {id:3,name:"人工智能"}
+                ]
+        }
+    });
+
+</script>
+</body>
+</html>

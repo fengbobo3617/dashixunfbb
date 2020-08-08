@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</div>
+        <div id="app">
+        <counter></counter>
+        </div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    //定义全局组件,有两个参数 1:组件名称 2:组件参数
+    const counter = {
+        template:'<button v-on:click="count++">点我啊{{count}}</button>',
+        data(){
+            return{
+                count:0
+            }
+        }
+    }
+    var app =new Vue({
+        el:"#app",
+        components:{
+            counter:counter
+        }
+    })
+    /*var app2= new Vue({
+    el:"#app2",
+        components:{
+        counter:counter
+    }
+    })*/
+
+</script>
+</body>
+</html>

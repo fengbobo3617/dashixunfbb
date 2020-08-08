@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>num:{{num}}</h2>
+    <counter :num="num" @inc="increment" @dec="decrement"></counter>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter",{
+        template:`
+            <div>
+                    <button @click="plus">加</button>
+                    <button @click="reduce">减</button>
+            </div>
+        `,
+       // props:['num'], //从counter获取数据
+        methods:{
+            plus(){
+                this.$emit('inc')
+            },
+            reduce(){
+                this.$emit('dec');
+            }
+        }
+       /* date(){
+        }*/
+    });
+    var app = new Vue({
+        el: "#app",
+        data:{
+            num:0
+        },
+        methods:{
+            //在父组件中定义方法
+            increment(){
+                this.num++
+                 },
+            decrement(){
+                this.num--;
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

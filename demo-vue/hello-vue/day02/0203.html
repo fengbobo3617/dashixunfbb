@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--<h1> 生日是: {{birth}}</h1>-->
+    <input type="text" v-model="message">
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var app =new Vue({
+        el:"#app",
+        data:{
+            message:""
+        },
+        watch:{
+            message(newVal,oldVal){
+                console.log(newVal,oldVal);
+
+    }
+        }
+       /*  birthday:1596846531320 //毫秒
+       computed:{
+            birth(){
+            const birthday2= new Date(this.birthday);
+            return birthday2.getFullYear()+'-'+(birthday2.getMonth()+1)+'-'+birthday2.getDate();
+            }
+        }*/
+    })
+            </script>
+</body>
+</html>
